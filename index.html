@@ -7,55 +7,82 @@
 		  
         //window.onclick = myFunction;
         //document.getElementsByTagName('dates')[0];
-
-		
-            
-			    console.log (geemails.length);
-                //10 messages//			
+			    // console.log (geemails.length);
+                //getting first 10 messages//			
 
 
-				for (var i =0; i<geemails.length; i++){
-		     	//console.log(window.geemails[i]); 
- 
+
+				for( i=0; i < geemails.length; i++){
+				 // 1
 				 var emailBox = document.createElement('div');
-				 emailBox.className = "Emails"
-				 emailBox.addEventListener('click', showBody);
+				 emailBox.className = "emails";
+				 //emailBox.addEventListener('click', showBody);
+				 
 				 main.appendChild(emailBox);
 
 
 				 var dateBox = document.createElement('div');
 				 dateBox.className = "dates";
-				 dateBox.innerHTML = "Date: " + geemails[i].date;
+				 dateBox.innerHTML = geemails[i].date;
 				 //Box.addEventListener('click',subs);
 				 emailBox.appendChild(dateBox);
 
 							 
 				 var subjectBox = document.createElement('div');
                  subjectBox.className = "Subs";
-                 subjectBox.innerHTML = "Subject:"+ geemails[i].subject;
+                 subjectBox.innerHTML = geemails[i].subject;
 				 //subjectBox.addEventListener('click',subs);
                  dateBox.appendChild(subjectBox);
 
 
                  var senderBox = document.createElement('div');
                  senderBox.className = "whosend";
-                 senderBox.innerHTML = "Sender:" + geemails[i].sender;
+                 senderBox.innerHTML = geemails[i].sender;
 				 subjectBox.appendChild(senderBox);
 
                
                  var bodyBox = document.createElement('div');
                  bodyBox.className = "bod";
-                 bodyBox.innerHTML = "Body:" + geemails[i].body;
+                 bodyBox.innerHTML = geemails[i].body;
 				 //bodyBox.addEventListener('click', showBody);
 				 senderBox.appendChild(bodyBox);
 				}
+
+				// 2
+
+				var superClickBox = document.getElementsByClassName("emails");
+
+				for (var i =0; i<superClickBox.length; i++){
+					superClickBox[i].addEventListener('click', showNewBod);
+		     	//console.log(window.geemails[i]); 
+				}
+					function showNewBod(){
+						var bodChild = this.querySelectorAll('.bod')[0];
+						if (bodChild.style.display === 'block'){
+						bodChild.style.display = 'none';
+						}else{
+						bodChild.style.display = 'block';
+						}
+							}
+					// 3
+					var allEmails = geemails.length;
+					var emailCount =  document.createElement('div');
+						emailCount.id = "countCalculator";	
+						emailCount.innerHTML = allEmails;
+						inboxCounter.appendChild(emailCount);
+
+			
+					
 
 				//setInterval(getNewMessage, 1000);
 				//var testNewMessages = getNewMessage();
 	
 					
-			  }
+			  
+			  	// email counter //
 
+							function wtf(){
+								var wtf2 = getNewMessage();
 	  			
 					 var newEmailBox = document.createElement('div');
 				     newEmailBox.className = "emails"
@@ -63,78 +90,59 @@
 
 
 					 var newDateBox = document.createElement('div');
-					 newDateBox.className = "newDates";
-					 newDateBox.innerHTML = "date:"+ newDateBox.date; 
+					 newDateBox.className = "dates";
+					 newDateBox.innerHTML = "date:"+ wtf2.date; 
 					 newEmailBox.appendChild(newDateBox);
 
 					 var newSubjectBox = document.createElement('div');
-					 newSubjectBox.className = "newSubs";
-					 newSubjectBox.innerHTML = "Subject:"+ newSubjectBox.subject;
+					 newSubjectBox.className = "subs";
+					 newSubjectBox.innerHTML = "Subject:"+ wtf2.subject;
 					 newDateBox.appendChild(newSubjectBox); 
 
 					 var newSenderBox = document.createElement('div');
-					 newSenderBox.className = "newWhoSend";
-					 newSenderBox.innerHTML = "Sender:" + newSenderBox.sender;
+					 newSenderBox.className = "whoSend";
+					 newSenderBox.innerHTML = "Sender:" + wtf2.sender;
 					 newSubjectBox.appendChild(newSenderBox);
 
 					 var newBodyBox = document.createElement('div');
-					 newBodyBox.className = "newBod";
-					 newBodyBox.innerHTML = "body:" + genBodyBox.body;
+					 newBodyBox.className = "bod";
+					 newBodyBox.innerHTML = "body:" + wtf2.body;
 					 newSenderBox.appendChild(newBodyBox);
 
+					 emailCount.innerHTML = ++allEmails;
 
-					 var openBody = document.getElementsByClassName('emails');
+							}
+					//  var openBody = document.getElementsByClassName('emails');
 
-					 for(i=0; openBody.length; i++){
-						 //openBody[i].addEventListener('click', showBody);
+					//  for(i=0; openBody.length; i++){
+					// 	 //openBody[i].addEventListener('click', showBody);
 
-					 }
-
-
-					 function showBody(){
-						 var getBody = this.querySelectorAll('.bod')[0];
-
-						 if(getBody.style.display === 'block'){
-                         getBody.style.display = 'none';
-					     }else{
-						 getBody.style.display = 'block';
-
-						 }
-
-
-					 }
+					//  }
+            			
+					 
 
 					 //var genInbox = document.getElementById('inboxCounter');
 
 					// genBox.innerHTML = 'inboxCounter:'+ geemails.length++
 					 //console.log(genDateBox);	
+	
 
+			    	// var allEamils = geemails.length;
+					// var emailCount =  document.createElement('div');
+					// emailCount.className = "countCalculator";	
+					// emailCount.innerHTML = allEamils;
+					// inboxCounter.appendChild(emailCount);
 
-					function showNewBod(){
-						var bodChild = this.querySelectorAll('.bod')[0];
-						if (bodChild.style.display === 'block'){
-						bodChild.style.display = 'none'
-						}else{
-						if (bodChild.style.display = 'block'){
-						bodChild.style.display = 'none';
-						}else{
-						bodChild.style.display = 'block';
-
-						}
-						} 
-
-					var allEamils = document.querySelectorAll('.emails').length;
-					var emailCount =  document.createElement('div');
-					emailCount.id = "countCalculator";
-					main.appendChild(emailCount);
-
-					
-
-					setInterval(emailGenerator, 3000)
+					//emailCount.innerHTML = ++allEmails;
+					// }
+					setInterval(wtf,3000);
 					//console.log(windows.geemails);
 
 
-					}
+					};
+
+
+
 
 
 	</script>
@@ -144,16 +152,21 @@
 	
 	<body>
 		
+			
+		<img src="https://thumbs.gfycat.com/UnhealthyLargeChital-size_restricted.gif" width="15%" alt="neon" id="icon">
 		<header id= "top"><h1>GEE-MAILS-DESU</h1>
-
-
 		</header>
+	
+      </div>
+
+
+		
 
 		<div id="main">
 			
 			
-		<div id="inboxCounter">
-		<h2 id="inbox">INBOX-DESU</h2>
+		<div id="inboxCounter">INBOX-DESU
+		
 		</div>	
 			
 		
