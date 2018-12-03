@@ -4,15 +4,162 @@
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
-    </script>
+		  
+        //window.onclick = myFunction;
+        //document.getElementsByTagName('dates')[0];
+
+		
+            
+			    console.log (geemails.length);
+                //10 messages//			
+
+
+				for (var i =0; i<geemails.length; i++){
+		     	//console.log(window.geemails[i]); 
+ 
+				 var emailBox = document.createElement('div');
+				 emailBox.className = "Emails"
+				 emailBox.addEventListener('click', showBody);
+				 main.appendChild(emailBox);
+
+
+				 var dateBox = document.createElement('div');
+				 dateBox.className = "dates";
+				 dateBox.innerHTML = "Date: " + geemails[i].date;
+				 //Box.addEventListener('click',subs);
+				 emailBox.appendChild(dateBox);
+
+							 
+				 var subjectBox = document.createElement('div');
+                 subjectBox.className = "Subs";
+                 subjectBox.innerHTML = "Subject:"+ geemails[i].subject;
+				 //subjectBox.addEventListener('click',subs);
+                 dateBox.appendChild(subjectBox);
+
+
+                 var senderBox = document.createElement('div');
+                 senderBox.className = "whosend";
+                 senderBox.innerHTML = "Sender:" + geemails[i].sender;
+				 subjectBox.appendChild(senderBox);
+
+               
+                 var bodyBox = document.createElement('div');
+                 bodyBox.className = "bod";
+                 bodyBox.innerHTML = "Body:" + geemails[i].body;
+				 //bodyBox.addEventListener('click', showBody);
+				 senderBox.appendChild(bodyBox);
+				}
+
+				//setInterval(getNewMessage, 1000);
+				//var testNewMessages = getNewMessage();
+	
+					
+			  }
+
+	  			
+					 var newEmailBox = document.createElement('div');
+				     newEmailBox.className = "emails"
+				     emails.appendChild(newemailBox);
+
+
+					 var newDateBox = document.createElement('div');
+					 newDateBox.className = "newDates";
+					 newDateBox.innerHTML = "date:"+ newDateBox.date; 
+					 newEmailBox.appendChild(newDateBox);
+
+					 var newSubjectBox = document.createElement('div');
+					 newSubjectBox.className = "newSubs";
+					 newSubjectBox.innerHTML = "Subject:"+ newSubjectBox.subject;
+					 newDateBox.appendChild(newSubjectBox); 
+
+					 var newSenderBox = document.createElement('div');
+					 newSenderBox.className = "newWhoSend";
+					 newSenderBox.innerHTML = "Sender:" + newSenderBox.sender;
+					 newSubjectBox.appendChild(newSenderBox);
+
+					 var newBodyBox = document.createElement('div');
+					 newBodyBox.className = "newBod";
+					 newBodyBox.innerHTML = "body:" + genBodyBox.body;
+					 newSenderBox.appendChild(newBodyBox);
+
+
+					 var openBody = document.getElementsByClassName('emails');
+
+					 for(i=0; openBody.length; i++){
+						 //openBody[i].addEventListener('click', showBody);
+
+					 }
+
+
+					 function showBody(){
+						 var getBody = this.querySelectorAll('.bod')[0];
+
+						 if(getBody.style.display === 'block'){
+                         getBody.style.display = 'none';
+					     }else{
+						 getBody.style.display = 'block';
+
+						 }
+
+
+					 }
+
+					 //var genInbox = document.getElementById('inboxCounter');
+
+					// genBox.innerHTML = 'inboxCounter:'+ geemails.length++
+					 //console.log(genDateBox);	
+
+
+					function showNewBod(){
+						var bodChild = this.querySelectorAll('.bod')[0];
+						if (bodChild.style.display === 'block'){
+						bodChild.style.display = 'none'
+						}else{
+						if (bodChild.style.display = 'block'){
+						bodChild.style.display = 'none';
+						}else{
+						bodChild.style.display = 'block';
+
+						}
+						} 
+
+					var allEamils = document.querySelectorAll('.emails').length;
+					var emailCount =  document.createElement('div');
+					emailCount.id = "countCalculator";
+					main.appendChild(emailCount);
+
+					
+
+					setInterval(emailGenerator, 3000)
+					//console.log(windows.geemails);
+
+
+					}
+
+
+	</script>
 	</head>
+
+
+	
 	<body>
-		<div class="container" id="main">
-			Build Me!
+		
+		<header id= "top"><h1>GEE-MAILS-DESU</h1>
+
+
+		</header>
+
+		<div id="main">
+			
+			
+		<div id="inboxCounter">
+		<h2 id="inbox">INBOX-DESU</h2>
+		</div>	
+			
+		
+
+
+
 		</div>
 	</body>
 </html>
