@@ -85,8 +85,8 @@
 								var wtf2 = getNewMessage();
 	  			
 					 var newEmailBox = document.createElement('div');
-				     newEmailBox.className = "emails"
-				     emails.appendChild(newemailBox);
+				     newEmailBox.className = "emails";
+				     main.appendChild(newEmailBox);
 
 
 					 var newDateBox = document.createElement('div');
@@ -109,9 +109,24 @@
 					 newBodyBox.innerHTML = "body:" + wtf2.body;
 					 newSenderBox.appendChild(newBodyBox);
 
-					 emailCount.innerHTML = ++allEmails;
+
+					 //emailCount.innerHTML = ++allEmails;
+
+					newEmailBox.addEventListener('click', showNewBod);
+					function showNewBod(){
+
+						var bodChild = this.querySelectorAll('.bod')[0];
+						if (bodChild.style.display === 'block'){
+						bodChild.style.display = 'none';
+						}else{
+						bodChild.style.display = 'block';
+						}
+							}
+							emailCount.innerHTML = ++allEmails;
+
 
 							}
+
 					//  var openBody = document.getElementsByClassName('emails');
 
 					//  for(i=0; openBody.length; i++){
